@@ -1,0 +1,86 @@
+{{! Igual ao index.handlebars, só muda o texto do botão }}
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand ms-3" href="/candidates">Emprega Tech</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Ver vagas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-primary" href="/candidates/profile">Meu perfil</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div id="top-container" class="container-fluid">
+  <h1 id="main-title" class="text-center">Bem-vindo(a) à sua área de candidato!</h1>
+  <p id="main-subtitle" class="text-center">Encontre vagas perfeitas para o seu perfil!.</p>
+  <form id="search-form" action="/candidates" method="GET">
+    <div class="row">
+      <div class="form-group col-md-10">
+        <input type="text" class="form-control" id="job" name="job" placeholder="Digite a vaga que está buscando">
+      </div>
+      <div class="form-group col-md-2">
+        <button type="submit" class="btn btn-primary w-100">Procurar</button>
+      </div>
+    </div>
+  </form>
+</div>
+<main>
+  <div id="jobs-container" class="container">
+    <div class="row">
+      <div class="col-md-12">
+        {{#if search}}
+          <h2 id="job-list-title">Buscando vagas que contem: {{search}}</h2>
+        {{else}}
+          <h2 id="job-list-title">Veja as nossas vagas em destaque</h2>
+        {{/if}}
+        <ul id="job-list" class="list-group">
+          {{#each jobs}}
+            <li class="list-group-item {{#if dataValues.new_job }}new-job{{/if}}">
+              <img src="/img/company.svg" alt="Company">
+              <p>{{dataValues.company}}</p>
+              <h2>{{dataValues.title}}</h2>
+              <p>R${{dataValues.salary}}</p>
+              <span class="new-job-label">Nova</span>
+              <a class="btn btn-primary" href="/jobs/view/{{dataValues.id}}">Ver vaga</a>
+            </li>
+          {{/each}}
+        </ul>
+     </div>
+    </div>
+   </div>
+   <div>
+    <footer>
+    <h4>Onde estamos támbem?</h4>
+    <div class="social-icons">
+        <a href="#" target="_blank">
+          <img src="/img/instagram.png" alt="Instagram">
+            <span>EmpregaTech</span>
+        </a>
+        <a href="#" target="_blank">
+          <img src="/img/facebook.png" alt="Facebook">
+            <span>EmpregaTechti</span>
+        </a>
+        <a href="#" target="_blank">
+            <img src="/img/youtube.png" alt="Youtube">
+            <span>EmpregaTechTI</span>
+        </a>
+    </div>
+    </footer>
+   </div>
+   <footer class="footer">
+        <div class="footer-container">
+          <p>&copy; 2025 EMPREGA TECH. Todos os direitos reservados.</p>
+          <div class="footer-links">
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Contato : (55) 61 99999-9999</a>
+          </div>
+        </div>
+      </footer>
+  </main>

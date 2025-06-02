@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-
+const Job = require("../models/Job");
+const { Sequelize } = require('sequelize');
+const Op  = Sequelize.Op;
 
 // rota entrar
 router.get('/entrar', (req, res) => {
-    res.render('entrar');
+    res.render('entrar' , {layout: false});
 });
 
 // rota cadastrar recrutador
@@ -50,6 +52,22 @@ router.get('/entrarCandidato', (req, res) => {
   res.render('entrarCandidato',{ layout: false }); // usar entrarCandidato.handlebars
 });
 
+router.get("/candidates", (req, res) => {
+  let search = req.query.job;
+  let query = '%' + (search || '') + '%';
+
+  let where = search ? { title: { [Op.like]: query } } : undefined;
+
+  Job.findAll({ where, order: [['id', 'DESC']] })
+    .then(jobs => {
+      res.render("candidates", { jobs, search });
+    })
+    .catch(err => console.log(err));
+});
+
+router.post('/entrarCandidato', (req, res) => {
+  res.redirect('/candidates');
+});
 
 // Redireciona para o Google
 router.get('/auth/google',

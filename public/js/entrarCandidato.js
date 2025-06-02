@@ -41,7 +41,7 @@ function entrar(){
   })
    
   if(usuario.value == userValid.user && senha.value == userValid.senha){
-    window.location.href = '/';
+    window.location.href = '/candidates';
 
     
     let mathRandom = Math.random().toString(16).substr(2)
