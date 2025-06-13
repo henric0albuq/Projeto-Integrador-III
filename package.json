@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Este sistema é um portal para programadores encontrarem vagas de trabalho",
   "main": "app.js",
-  "scripts": { 
+  "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
@@ -13,7 +13,7 @@
     "dev",
     "oportunity"
   ],
-  "author": "Davi", 
+  "author": "Davi",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.3",
@@ -22,6 +22,7 @@
     "express-handlebars": "^8.0.1",
     "express-session": "^1.18.1",
     "google-auth-library": "^9.15.1",
+    "multer": "^2.0.1",
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
     "pg": "^8.15.6",
@@ -31,7 +32,6 @@
     "sqlite3": "^5.0.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.10"
   }
 }
-

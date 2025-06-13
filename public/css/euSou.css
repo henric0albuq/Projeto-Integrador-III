@@ -1,10 +1,14 @@
 body {
+  background-image: url("../img/empregatech.png");
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 50px;
+      justify-content: center;
+      align-items: center;
     }
     h2 {
       margin-bottom: 30px;
+      
     }
     .btn {
       display: inline-block;
@@ -12,15 +16,32 @@ body {
       margin: 10px;
       font-size: 16px;
       cursor: pointer;
-      background-color: #007bff;
-      color: white;
+      background-color: #f6f7f8;
+      color: rgb(14, 13, 13);
       border: none;
       border-radius: 8px;
       text-decoration: none;
     }
     .btn:hover {
-      background-color: #0056b3;
+      background-color: #72c96a;
     }
     .btn:active {
       background-color: #004080;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

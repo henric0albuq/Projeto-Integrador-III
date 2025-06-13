@@ -8,14 +8,19 @@ router.get("/test" , (req, res) => {
 });
 
 // detalhe da vaga
-router.get("/view/:id", (req, res) => Job.findOne({
-  where: {id: req.params.id}
-}).then(job => {
-  res.render("view", {
-    job
-  });
-
-}).catch(err => console.log(err)));
+// detalhe da vaga sem navbar
+router.get("/view/:id", (req, res) => {
+  Job.findOne({
+    where: { id: req.params.id }
+  })
+  .then(job => {
+    res.render("view", {
+      layout: 'noNavbar', // <<< usa o layout sem navbar
+      job
+    });
+  })
+  .catch(err => console.log(err));
+});
 
 
 // form da rota de envio

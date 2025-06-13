@@ -17,6 +17,7 @@ require('dotenv').config();
 
 app.use(express.static('public'));
 
+app.use('/uploads', express.static('uploads'));
 
 
 passport.use(new GoogleStrategy({
